@@ -14,14 +14,12 @@ pnpm-debug.log*
 
 # Editor directories and files
 .idea
+.github
+.firebase
 .vscode
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
-# data
-github
-firebase
 *./Firebase.js
