@@ -14,7 +14,6 @@ export function registerPlugins(app) {
 		.use(router) //
 		.use(pinia) //
 		.use(Firebase) //
-		// .use(favorites) //
 		.use(Axios) //
 		.use(gitHubSearch);
 }

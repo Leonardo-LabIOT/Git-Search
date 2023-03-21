@@ -1,31 +1,48 @@
 <template>
-	<div v-if="renderToolBar" class="tBar">
-		<span class="tooBarFont titulo">
+	<!-- <div class="tBar">class="tBar" -->
+	<v-toolbar v-if="renderToolBar" tooBa>
+		<v-card-title tooBarFont titulo>
 			<router-link to="/">
 				<strong> GitHub </strong>
 				Search
 			</router-link>
-		</span>
+		</v-card-title>
+
 		<v-spacer></v-spacer>
-		<router-link
-			class="r-Link tooBarFont"
-			:class="{ activeRoute: $route.name == 'Home' }"
-			to="/"
-		>
-			HOME
-		</router-link>
-		<router-link
-			class="r-Link tooBarFont"
-			to="/favorites"
-			:class="{ activeRoute: $route.name == 'Favorites' }"
-			>FAVORITES
-		</router-link>
-	</div>
+
+		<v-toolbar-items v-if="desktop" flat class="fill-height" tooItens>
+			<buttonVue rota="Home" />
+			<buttonVue rota="Favorites" />
+		</v-toolbar-items>
+		<template v-if="!desktop" v-slot:append>
+			<v-menu class="navIc" transition="slide-y-transition">
+				<template v-slot:activator="{ props }">
+					<v-app-bar-nav-icon v-bind="props"> </v-app-bar-nav-icon>
+				</template>
+				<buttonVue rota="Home" />
+				<buttonVue rota="Favorites" />
+			</v-menu>
+		</template>
+		<button @click="responsive">Click!</button>
+	</v-toolbar>
+	<!-- </div> -->
 </template>
 <script>
+import buttonVue from "./buttonVue";
 export default {
 	name: "tooBa",
 	props: { renderToolBar: Boolean },
+	components: {
+		buttonVue,
+	},
+	data() {
+		return { desktop: true };
+	},
+	methods: {
+		responsive() {
+			this.desktop = !this.desktop;
+		},
+	},
 };
 </script>
 
@@ -33,29 +50,28 @@ export default {
 * {
 	font-family: "Inter", sans-serif;
 }
-.tBar {
+a {
+	text-decoration: none;
+	color: #333;
+}
+[tooBa] {
 	height: 84px;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
-	padding: 15px 65px;
-	// background-color: #d9d9d9;//teste
+	padding: 15px 40px;
 	background-color: #dadada;
 	box-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: 0.25);
 	align-items: center;
 	justify-content: space-around;
 }
-a {
-	text-decoration: none;
-	color: #333;
-}
 
-.tooBarFont {
+[tooBarFont] {
 	font-weight: 600;
 	font-size: 18px;
 	color: #000;
 }
-.titulo {
+[titulo] {
 	font-size: 32px;
 	font-weight: 500;
 	font-family: "Rubik", "Roboto", "Inter", sans-serif;
@@ -65,10 +81,9 @@ a {
 		font-weight: 700;
 	}
 }
-.r-Link {
-	margin: 20px;
-}
-.activeRoute {
-	color: red;
+[tooItens] {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 </style>

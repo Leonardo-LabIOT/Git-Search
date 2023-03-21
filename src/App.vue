@@ -1,6 +1,7 @@
 <template>
 	<main>
 		<tBar renderToolBar />
+
 		<router-view />
 	</main>
 </template>
@@ -12,7 +13,6 @@ export default {
 	data() {
 		return {
 			renderToolBar: false,
-			
 		};
 	},
 	components: {
@@ -21,6 +21,9 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+* {
+	box-sizing: border-box;
+}
 main {
 	width: 100%;
 	height: 100vh;
@@ -28,5 +31,10 @@ main {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
+}
+
+.tbar {
+	height: 120px;
+	background-color: black;
 }
 </style>
