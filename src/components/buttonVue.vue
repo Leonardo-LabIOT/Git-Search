@@ -27,14 +27,13 @@ a {
 	// color: #000000;
 }
 [btn] {
-	font-family: "Inter", Roboto, sans-serif !important;
-
+	font-family: "Inter", Roboto, sans-serif;
 	font-weight: 600;
 	font-size: 20px;
 	display: flex;
 	align-items: center;
-	width: 100px;
-	height: 60px;
+	justify-content: center;
+	margin: 0 15px;
 }
 .btAct {
 	color: red !important;

@@ -44,8 +44,8 @@ export default {
 			// );
 			//chamar apidebusca
 			let username = this.stringToFind;
-			// let var2 = "https://api.github.com/users/" + username;
-			let var2 = "https://api.github.com/users/Leonardo-LabIOT" + username;
+			let var2 = "https://api.github.com/users/" + username;
+			// let var2 = "https://api.github.com/users/Leonardo-LabIOT" + username;
 
 			axios
 				.get(var2)
@@ -61,11 +61,12 @@ export default {
 					console.log(E.data.name);
 					favStore[0] = E.data;
 					console.log(favStore[0].name);
+					alert(favStore[0].name);
+
 					this.$router.replace(
 						(this.repoOrUser ? "/repositories/" : "/users/") + this.stringToFind
 					);
 				});
-			// alert(this.$pinia.state.users);
 			this.stringToFind = "";
 		},
 	},
