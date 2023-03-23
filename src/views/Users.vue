@@ -1,11 +1,24 @@
 <template>
-  <div>
-    <h1>Users</h1>
-  </div>
+	<div>
+		<h1>
+			{{ user }}
+		</h1>
+	</div>
 </template>
 
 <script>
-export default {};
+import { favStore } from "@/main";
+
+export default {
+	props: {
+		// user: Object,
+	},
+	data() {
+		return {
+			user: favStore[0],
+		};
+	},
+};
 </script>
 
 <style scoped lang="scss"></style>

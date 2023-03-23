@@ -23,6 +23,8 @@ export default {
 <style scoped lang="scss">
 * {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 main {
 	width: 100%;
@@ -34,7 +36,7 @@ main {
 }
 
 .tbar {
-	height: 120px;
+	height: 84px;
 	background-color: black;
 }
 </style>

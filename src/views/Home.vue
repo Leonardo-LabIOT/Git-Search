@@ -1,6 +1,6 @@
 <template>
-	<v-responsive class="d-flex align-center text-center fill-height">
-		<v-img contain height="200" src="@/assets/github-mark.svg " />
+	<div class="principal">
+		<v-img contain imagem src="@/assets/github-mark.svg " />
 		<div class="btcontainer">
 			<button
 				class="btns"
@@ -12,8 +12,8 @@
 				{{ button.text }}
 			</button>
 		</div>
-		<SearchText :repoOrUser="buttons[0].isActive" />
-	</v-responsive>
+		<SearchText searchField :repoOrUser="buttons[0].isActive" />
+	</div>
 </template>
 <script>
 import SearchText from "@/components/SearchText.vue";
@@ -40,27 +40,51 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-.searchField {
-	width: 512px;
-	border: 1px black solid;
-	border-radius: 5px;
+.principal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100vh;
+}
+[searchField] {
+	// width: 500px;
+	// height: 500px;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 476px;
 }
 .btcontainer {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	position: absolute;
+	top: 379px;
 }
 .btns {
-	width: 128px;
-	margin: 30px;
-	font-weight: 600;
-	font-size: 1rem;
+	width: 186px;
+	height: 51px;
+	font-weight: 700;
+	font-size: 20px;
 	color: black;
 	background-color: white;
+	border-radius: 5px;
+	margin: 20px;
+	border: 2px solid black;
 }
 .primar {
 	color: white;
 	background-color: black;
+}
+[imagem] {
+	margin: 0;
+	padding: 0;
+	width: 169px;
+	height: 169px;
+	position: absolute;
+	top: 138px;
 }
 </style>
