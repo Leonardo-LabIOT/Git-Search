@@ -3,10 +3,9 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
 	{
-		// debug
-		path: "/helloWorld",
-		name: "helloWorld",
-		component: () => import("../components/HelloWorld.vue"),
+		path: "/hello",
+		name: "Hello",
+		component: () => import("@/components/HelloWorld.vue"),
 	},
 	{
 		path: "",
@@ -44,7 +43,7 @@ const routes = [
 		component: () => import("@/views/Repositorios.vue"),
 	},
 	{
-		path: "/pageNotFound",
+		path: "/:pathMatch(.*)*",
 		name: "PageNotFound",
 		component: () => import("@/views/PageNotFound.vue"),
 	},

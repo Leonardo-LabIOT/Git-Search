@@ -1,79 +1,50 @@
 <template>
-  <v-container class="fill-height">
-    <v-responsive class="d-flex align-center text-center fill-height">
-      <v-img
-        contain
-        height="300"
-        src="@/assets/logo.svg"
-      />
-
-      <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
-
-      <h1 class="text-h2 font-weight-bold">Vuetify</h1>
-
-      <div class="py-14" />
-
-      <v-row class="d-flex align-center justify-center">
-        <v-col cols="auto">
-          <v-btn
-            href="https://next.vuetifyjs.com/components/all/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-view-dashboard"
-              size="large"
-              start
-            />
-
-            Components
-          </v-btn>
-        </v-col>
-
-        <v-col cols="auto">
-          <v-btn
-            color="primary"
-            href="https://next.vuetifyjs.com/introduction/why-vuetify/#feature-guides"
-            min-width="228"
-            rel="noopener noreferrer"
-            size="x-large"
-            target="_blank"
-            variant="flat"
-          >
-            <v-icon
-              icon="mdi-speedometer"
-              size="large"
-              start
-            />
-
-            Get Started
-          </v-btn>
-        </v-col>
-
-        <v-col cols="auto">
-          <v-btn
-            href="https://community.vuetifyjs.com/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-account-group"
-              size="large"
-              start
-            />
-
-            Community
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-responsive>
-  </v-container>
+	<button class="ma-3 pa-2 border" @click="onClick">click</button>
+	<v-card class="dark center">
+		{{ myProgress }}
+	</v-card>
+	<v-progress-linear
+		color="green"
+		stream
+		:model-value="bufferValue"
+		:buffer-value="0"
+		height="15"
+	></v-progress-linear>
+	<v-spacer></v-spacer>
+	<div class="dark center">{{ myProgress }}</div>
+	<v-spacer></v-spacer>
 </template>
 
-<script setup>
-  //
+<script>
+export default {
+	data() {
+		return {
+			myProgress: 0,
+		};
+	},
+	methods: {
+		onClick() {
+			this.loading = true;
+
+			setTimeout(() => {
+				this.loading = false;
+				this.loaded = true;
+				this.myProgress += 10;
+				this.myProgress > 100
+					? (this.myProgress = 0)
+					: console.log(this.myProgress);
+			}, 500);
+		},
+	},
+};
 </script>
+
+<style scoped lang="scss">
+.dark {
+	background-color: black;
+	color: antiquewhite;
+	font-size: 50px;
+	width: 75%;
+	height: 300px;
+}
+</style>

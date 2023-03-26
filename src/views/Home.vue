@@ -1,6 +1,7 @@
 <template>
 	<div class="principal">
-		<v-img contain imagem src="@/assets/github-mark.svg " />
+		<v-img contain imagem src="@/assets/github-mark.svg "
+ />
 		<div class="btcontainer">
 			<button
 				class="btns"
@@ -12,7 +13,11 @@
 				{{ button.text }}
 			</button>
 		</div>
-		<SearchText searchField :repoOrUser="buttons[0].isActive" />
+		<SearchText
+			searchField
+			:repoOrUser="buttons[0].isActive"
+		/>
+		<input type="text" />
 	</div>
 </template>
 <script>
@@ -24,11 +29,13 @@ export default {
 				{ text: "Repositório", isActive: true },
 				{ text: "Usuários", isActive: false },
 			],
+			timeStart: 0,
 		};
 	},
 	components: {
 		SearchText,
 	},
+
 	methods: {
 		selectedButton(bt) {
 			this.buttons.forEach((e) => {
@@ -49,13 +56,12 @@ export default {
 	width: 100vh;
 }
 [searchField] {
-	// width: 500px;
-	// height: 500px;
 	padding: 0;
 	margin: 0;
 	position: absolute;
 	top: 476px;
 }
+
 .btcontainer {
 	display: flex;
 	flex-direction: row;

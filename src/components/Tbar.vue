@@ -1,5 +1,4 @@
 <template>
-	<!-- <div class="tBar">class="tBar" -->
 	<v-toolbar v-if="renderToolBar" tooBa>
 		<v-card-title tooBarFont titulo>
 			<router-link to="/">
@@ -14,18 +13,14 @@
 			<buttonVue rota="Home" />
 			<buttonVue rota="Favorites" />
 		</v-toolbar-items>
-		<!-- <v-icon> </v-icon> -->
 
 		<navBarVue />
-
-		<!-- <v-app-bar-nav-icon v-bind="props"> </v-app-bar-nav-icon> -->
-		<!-- <button @click="responsive">Click!</button> -->
 	</v-toolbar>
-	<!-- </div> -->
+	<v-progress-linear :active="charge" :indeterminate="charge" />
 </template>
 <script>
-import buttonVue from "./buttonVue";
-import navBarVue from "./navBarVue";
+import buttonVue from "./ButtonVue";
+import navBarVue from "./NavBarVue";
 export default {
 	name: "tooBa",
 	props: { renderToolBar: Boolean },
@@ -34,12 +29,29 @@ export default {
 		navBarVue,
 	},
 	data() {
-		return { desktop: true };
+		return {
+			desktop: true,
+			charge: true,
+		};
 	},
 	methods: {
 		responsive() {
 			this.desktop = !this.desktop;
 		},
+	},
+	beforeUnmounted() {
+		console.log("before unmounted");
+		this.charge = true;
+	},
+	mounted() {
+		console.log("mounted");
+		this.charge = false;
+	},
+	beforeUpdate() {
+		console.log("beforeUpdate");
+	},
+	updated() {
+		console.log("Updated");
 	},
 };
 </script>
@@ -83,5 +95,4 @@ a {
 	align-items: center;
 	justify-content: center;
 }
-
 </style>

@@ -5,6 +5,7 @@
 		btn
 		:to="newRote"
 		:class="$route.name == rota ? 'btAct' : 'btIdl'"
+		:style="`color: ${corLocal}`"
 	>
 		{{ rota.toUpperCase() }}
 	</router-link>
@@ -14,17 +15,21 @@
 export default {
 	props: {
 		rota: String,
+		cor: String,
 	},
 	data() {
-		return { newRote: this.rota == "Home" ? "/" : "/favorites" };
+		return {
+			newRote: this.rota == "Home" ? "/" : "/favorites",
+			corLocal: this.cor || "black",
+		};
 	},
 };
 </script>
 
 <style scoped lang="scss">
+
 a {
 	text-decoration: none;
-	// color: #000000;
 }
 [btn] {
 	font-family: "Inter", Roboto, sans-serif;
@@ -37,9 +42,5 @@ a {
 }
 .btAct {
 	color: red !important;
-}
-
-.btIdl {
-	color: black !important;
 }
 </style>
