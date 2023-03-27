@@ -20,7 +20,7 @@
 					<buttonVue
 						class="btlist"
 						rota="Home"
-						cor="white"
+						cor="black"
 						icon="fa-home aria-hidden=true"
 					>
 					</buttonVue>
@@ -28,7 +28,7 @@
 				<hr />
 				<span class="btLine">
 					<i class="fa fa-star aria-hidden=true" />
-					<buttonVue class="btlist" cor="white" rota="Favorites" />
+					<buttonVue class="btlist" cor="black" rota="Favorites" />
 				</span>
 				<hr />
 			</v-list>
@@ -50,7 +50,7 @@ export default {
 
 <style scoped lang="scss">
 a {
-	color: white;
+	color: black;
 	align-items: center;
 }
 .menu {
@@ -58,14 +58,16 @@ a {
 	position: fixed;
 	top: 10px;
 	right: 10px;
+	z-index: 20;
 }
 .navContainer {
 	font-size: 1rem;
 	width: 255px;
 	padding: 20px;
+	border: 2px black solid;
 	box-shadow: 0px 0px 5px 5px rgba($color: #000000, $alpha: 0.25);
-	background-color: #dadada !important;
 	background-color: #333 !important;
+	background-color: #dadada !important;
 }
 .btLine {
 	display: flex;
@@ -74,17 +76,18 @@ a {
 	justify-items: flex-start;
 	align-items: center;
 	color: white;
+	color: black;
 }
 .titulo {
 	font-size: 20px;
-	color: #000000;
 	color: #ffffff;
+	color: #000000;
 	font-weight: bold;
 	hr {
-		color: #000000;
 		color: #fff;
-		border: 1px solid #000000;
+		color: #000000;
 		border: 1px solid #fff;
+		border: 1px solid #000000;
 		margin-bottom: 15px;
 	}
 }

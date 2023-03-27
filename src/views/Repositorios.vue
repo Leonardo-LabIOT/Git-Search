@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Repositorios</h1>
+    Repositorios
   </div>
 </template>
 

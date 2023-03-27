@@ -1,25 +1,28 @@
 <template>
-	<div searchFieldComponent>
-		<v-text-field
-			class="myClass"
-			:variant="loading ? 'outlined' : 'outlined'"
-			:label="repoOrUser ? 'Buscar Repositórios...' : 'Buscar Usuários...'"
-			:append-inner-icon="loading ? '' : 'fa-search'"
-			@click:append-inner="buscar()"
+	<div class="searchContainer">
+		<input
+			type="search"
+			class="textField"
+			:placeholder="
+				repoOrUser ? 'Buscar Repositórios...' : 'Buscar Usuários...'
+			"
 			@keyup.enter="buscar()"
 			v-model="stringToFind"
-			:loading="loading"
-			hide-details
-		>
-			<template v-slot:loader>
-				<v-progress-linear
-					color="green"
-					absolute
-					height="5"
-					:indeterminate="loading"
-				></v-progress-linear>
-			</template>
-		</v-text-field>
+			ref="inputFocus"
+		/>
+		<button @click="buscar()" >
+			<i
+				class="fa fa-search fa-2x iconBusca"
+				aria-hidden="true"
+				v-if="!loading"
+			/>
+			<v-progress-circular
+				v-else
+				class="iconBusca"
+				indeterminate
+				color="blue"
+			/>
+		</button>
 	</div>
 </template>
 
@@ -43,11 +46,11 @@ export default {
 				this.loaded = true;
 
 				let username = this.stringToFind;
-				let var2 = "https://api.github.com/users/" + username;
-				// let var2 = "https://api.github.com/users/Leonardo-LabIOT" + username;
+				let path = "https://api.github.com/users/" + username;
+				// let path = "https://api.github.com/users/Leonardo-LabIOT" + username;
 
 				axios
-					.get(var2)
+					.get(path)
 					.catch((err) => {
 						if (err.code === "ERR_BAD_REQUEST") {
 							console.log(err.code);
@@ -68,31 +71,43 @@ export default {
 				this.stringToFind = "";
 			}, 1000);
 		},
+		focus() {
+			this.$refs.inputFocus.focus();
+			this.stringToFind = "";
+		},
 	},
 };
 </script>
 
 <style scoped lang="scss">
-$text-field-border-radius: 5px !default;
-$text-field-color: orange;
-
-[searchFieldComponent] {
-	width: 75%;
-	// height: 71px;
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+.searchContainer {
+	display: flex;
+	border: 2px black solid;
 	border-radius: 10px;
-	// border: 2px solid black;
+	max-width: 90%;
+	height: 71px;
+	justify-content: space-between;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.myClass {
-	margin-bottom: -15px;
-	padding: 0;
-	height: 100%;
-	background-color: white;
-	border: 2px black solid;
-	border-radius: 15px;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.textField {
+	outline: none;
+	font-size: 24px;
+	width: 75%;
+	position: relative;
+	left: 25px;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	display: flex;
+	align-items: center;
+}
+
+.iconBusca {
+	width: 25px;
+	height: 25px;
+	position: relative;
+	right: 25px;
 }
 </style>

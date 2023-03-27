@@ -1,7 +1,6 @@
 <template>
 	<div class="principal">
-		<v-img contain imagem src="@/assets/github-mark.svg "
- />
+		<v-img contain imagem src="@/assets/github-mark.svg " />
 		<div class="btcontainer">
 			<button
 				class="btns"
@@ -14,10 +13,10 @@
 			</button>
 		</div>
 		<SearchText
+			ref="inputFocus"
 			searchField
 			:repoOrUser="buttons[0].isActive"
 		/>
-		<input type="text" />
 	</div>
 </template>
 <script>
@@ -42,6 +41,7 @@ export default {
 				e.isActive = false;
 			});
 			bt.isActive = true;
+			this.$refs.inputFocus.focus();
 		},
 	},
 };
@@ -52,8 +52,7 @@ export default {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 100vh;
-	width: 100vh;
+
 }
 [searchField] {
 	padding: 0;
@@ -69,6 +68,7 @@ export default {
 	justify-content: center;
 	position: absolute;
 	top: 379px;
+	max-width: 90%;
 }
 .btns {
 	width: 186px;
@@ -77,8 +77,10 @@ export default {
 	font-size: 20px;
 	color: black;
 	background-color: white;
-	border-radius: 5px;
-	margin: 20px;
+	border-radius: 10px;
+	margin: 0 20px;
+	margin: 0;
+
 	border: 2px solid black;
 }
 .primar {

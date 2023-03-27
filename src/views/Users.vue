@@ -1,8 +1,6 @@
 <template>
 	<div>
-		<h1>
 			{{ user }}
-		</h1>
 	</div>
 </template>
 
@@ -21,4 +19,8 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+* {
+	display: flex;
+	
+}</style>

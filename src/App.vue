@@ -23,12 +23,14 @@ export default {
 <style scoped lang="scss">
 * {
 	box-sizing: border-box;
+	max-width: 100vw;
 	margin: 0;
 	padding: 0;
+	flex-wrap: wrap;
 }
 main {
-	width: 100%;
-	height: 100vh;
+	max-width: 100vw;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;

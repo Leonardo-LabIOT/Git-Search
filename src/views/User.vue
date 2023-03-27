@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <h1>User</h1>
-  </div>
+	<div>User</div>
 </template>
 
 <script>
 export default {
-  // name: "Favorites",
-  // setup() {
-  //   return {};
-  // },
+	// name: "Favorites",
+	// setup() {
+	//   return {};
+	// },
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+
+</style>
