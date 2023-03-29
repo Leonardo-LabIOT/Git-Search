@@ -10,7 +10,7 @@
 			v-model="stringToFind"
 			ref="inputFocus"
 		/>
-		<button @click="buscar()" >
+		<button @click="buscar()">
 			<i
 				class="fa fa-search fa-2x iconBusca"
 				aria-hidden="true"

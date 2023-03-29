@@ -23,10 +23,10 @@ export default {
 <style scoped lang="scss">
 * {
 	box-sizing: border-box;
-	max-width: 100vw;
 	margin: 0;
 	padding: 0;
-	flex-wrap: wrap;
+	overflow:   auto;
+	overflow-wrap: anywhere !important;
 }
 main {
 	max-width: 100vw;
@@ -35,6 +35,7 @@ main {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
+
 }
 
 .tbar {

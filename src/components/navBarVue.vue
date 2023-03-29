@@ -64,7 +64,7 @@ a {
 	font-size: 1rem;
 	width: 255px;
 	padding: 20px;
-	border: 2px black solid;
+	// border: 2px black solid;
 	box-shadow: 0px 0px 5px 5px rgba($color: #000000, $alpha: 0.25);
 	background-color: #333 !important;
 	background-color: #dadada !important;

@@ -52,23 +52,23 @@ export default {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-
+	align-items: center;
+	padding: 21px;
 }
 [searchField] {
-	padding: 0;
-	margin: 0;
-	position: absolute;
-	top: 476px;
+	display: flex;
+	margin: 21px;
+	max-width: 100vw;
+	min-width: 90vw;
 }
 
 .btcontainer {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: center;
-	position: absolute;
-	top: 379px;
-	max-width: 90%;
+justify-content: center;
+	max-width: 100vw;
+	margin: 0 -21px;
 }
 .btns {
 	width: 186px;
@@ -78,21 +78,17 @@ export default {
 	color: black;
 	background-color: white;
 	border-radius: 10px;
-	margin: 0 20px;
-	margin: 0;
-
 	border: 2px solid black;
+	margin: 21px;
 }
 .primar {
 	color: white;
 	background-color: black;
 }
 [imagem] {
-	margin: 0;
+	margin: 50px;
 	padding: 0;
 	width: 169px;
 	height: 169px;
-	position: absolute;
-	top: 138px;
 }
 </style>

@@ -22,5 +22,9 @@ export default {
 <style scoped lang="scss">
 * {
 	display: flex;
-	
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+
 }</style>
