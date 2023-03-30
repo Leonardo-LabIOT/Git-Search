@@ -8,30 +8,32 @@
 		>
 			<v-icon class="fa" size="150%">fa-bars</v-icon>
 		</v-btn>
-		<div class="menu" v-if="showMenu" @click="showMenu = !showMenu">
-			<v-list class="navContainer">
-				<span class="titulo"
-					><center>Navegar</center>
-					<hr />
-				</span>
+		<div class="menuContainer" v-if="showMenu" @click="showMenu = !showMenu">
+			<div class="menu" >
+				<v-list class="navContainer">
+					<span class="titulo"
+						><center>Navegar</center>
+						<hr />
+					</span>
 
-				<span class="btLine">
-					<i class="fa fa-home" />
-					<buttonVue
-						class="btlist"
-						rota="Home"
-						cor="black"
-						icon="fa-home aria-hidden=true"
-					>
-					</buttonVue>
-				</span>
-				<hr />
-				<span class="btLine">
-					<i class="fa fa-star aria-hidden=true" />
-					<buttonVue class="btlist" cor="black" rota="Favorites" />
-				</span>
-				<hr />
-			</v-list>
+					<span class="btLine">
+						<i class="fa fa-home" />
+						<buttonVue
+							class="btlist"
+							rota="Home"
+							cor="black"
+							icon="fa-home aria-hidden=true"
+						>
+						</buttonVue>
+					</span>
+					<hr />
+					<span class="btLine">
+						<i class="fa fa-star aria-hidden=true" />
+						<buttonVue class="btlist" cor="black" rota="Favorites" />
+					</span>
+					<hr />
+				</v-list>
+			</div>
 		</div>
 	</div>
 </template>
@@ -49,6 +51,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.menuContainer {
+	display: flex;
+	background-color: transparent;
+	width: 100vmax;
+	height: 100vmax;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+}
 a {
 	color: black;
 	align-items: center;
@@ -58,7 +70,6 @@ a {
 	position: fixed;
 	top: 10px;
 	right: 10px;
-	z-index: 20;
 }
 .navContainer {
 	font-size: 1rem;

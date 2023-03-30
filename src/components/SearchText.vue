@@ -11,11 +11,7 @@
 			ref="inputFocus"
 		/>
 		<button @click="buscar()">
-			<i
-				class="fa fa-search fa-2x iconBusca"
-				aria-hidden="true"
-				v-if="!loading"
-			/>
+			<i class="fa fa-search iconBusca" aria-hidden="true" v-if="!loading" />
 			<v-progress-circular
 				v-else
 				class="iconBusca"
@@ -84,7 +80,6 @@ export default {
 	display: flex;
 	border: 2px black solid;
 	border-radius: 10px;
-	max-width: 90%;
 	height: 71px;
 	justify-content: space-between;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -92,22 +87,21 @@ export default {
 
 .textField {
 	outline: none;
-	font-size: 24px;
 	width: 75%;
 	position: relative;
 	left: 25px;
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 400;
-	font-size: 24px;
+	// font-size: 24px;
 	display: flex;
 	align-items: center;
 }
 
 .iconBusca {
-	width: 25px;
-	height: 25px;
+	width: 2rem;
+	height: 2rem;
 	position: relative;
-	right: 25px;
+	right: 2rem;
 }
 </style>
